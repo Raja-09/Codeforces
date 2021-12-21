@@ -2,52 +2,34 @@
 using namespace std;
 void solution()
 {
+
     string inp;
-    cin>>inp;
-    vector<int> count(inp.length());
-    for(int i=0;i<inp.length();i++)
+    cin >> inp;
+    char temp = inp[0];
+    bool issquare = true;
+    if (inp.length() % 2 != 0)
+        issquare = false;
+    if (issquare)
     {
-        char temp=inp[i];
-        for(int j=i;j<inp.length();j++)
+        string firsthalf="" ;
+        string secondhalf="" ;
+        int mid = inp.length() / 2;
+        for (int i = 0; i <mid;i++)
         {
-            if(inp[j]==temp)
-                count[i]++;
+            firsthalf+=inp[i];
         }
+        for(int i=mid;i<inp.length();i++)
+            secondhalf+=inp[i];
+
+        if(firsthalf!=secondhalf)
+            issquare=false;
     }
 
-    for(int i=0;i<count.size();i++)
-        cout<<count[i]<< " ";
-    int i;
-    for(i=0;i<count.size();i++)
-    {
-        if(count[i]%2!=0)
-        {
-            cout<<"NO";
-            break;
-        }
-    }
-    if(i==count.size())
+    if(issquare )
         cout<<"YES";
-    
-}
-void solution2()
-{
-    string inp;
-    cin>>inp;
-    if(inp.length()%2==0)
-    {
-        bool isThr=false;
-        for(int i=0;i<inp.length();i++)
-        {
-            char temp=inp[i];
-            
-            for(int j=i+2;j<inp.length();j++)
-            {
-                if(temp==inp[j])
-                    isThr=true;
-            }
-        }
-    }
+    else
+        cout<<"NO";
+
 }
 int main()
 {
@@ -57,6 +39,6 @@ int main()
     while (t--)
     {
         solution();
-        cout<<endl;
+        cout << endl;
     }
 }
