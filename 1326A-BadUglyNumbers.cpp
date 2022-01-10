@@ -9,7 +9,8 @@ void solution()
     char lastDigit = number[0];
     for (int i = 0; i < n; i++)
     {
-
+        
+        
         
     }
 }
@@ -20,6 +21,7 @@ int main()
     while (t--)
     {
         solution();
+        cout<<endl;
     }
     return 0;
 }
